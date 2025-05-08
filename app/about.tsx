@@ -5,7 +5,7 @@ export default function AboutScreen() {
     <View
       style={styles.container}
     >
-      <Text style={styles.text}>About Screen</Text>
+      <Text style={styles.text}>AS</Text>
     </View>
   );
 }
