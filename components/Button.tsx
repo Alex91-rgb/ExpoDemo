@@ -1,3 +1,4 @@
+import { FontAwesome } from "@expo/vector-icons";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 type Props = {
@@ -6,11 +7,22 @@ type Props = {
 
 export default function Button({label}: Props) {
     return (
-        <View style={styles.buttonContainer}>
+        <View style={[
+            styles.buttonContainer,
+            { borderWidth:4, borderColor: "blue", borderRadius: 18},
+        ]}>
             <Pressable
-                style={styles.button}
+                style={[styles.button, {backgroundColor: "black"}]}
                 onPress={() => alert("Button Pressed.")}
             >
+
+                <FontAwesome
+                    name="picture-o"
+                    size={18}
+                    color="purple"
+                    style={styles.buttonIcon}
+                />
+
                 <Text style={styles.buttonLabel}>{label}</Text>
             </Pressable>
         </View>
