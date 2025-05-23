@@ -3,30 +3,32 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 
 type Props = {
     label: string;
+    theme?: "primary";
 };
 
-export default function Button({label}: Props) {
-    return (
-        <View style={[
-            styles.buttonContainer,
-            { borderWidth:4, borderColor: "blue", borderRadius: 18},
-        ]}>
-            <Pressable
-                style={[styles.button, {backgroundColor: "black"}]}
-                onPress={() => alert("Button Pressed.")}
-            >
+export default function Button({ label, theme }: Props) {
+    if (theme === "primary")
+        return (
+            <View style={[
+                styles.buttonContainer,
+                { borderWidth: 4, borderColor: "yellow", borderRadius: 18 },
+            ]}>
+                <Pressable
+                    style={[styles.button, { backgroundColor: "#fff" }]}
+                    onPress={() => alert("Button Pressed.")}
+                >
 
-                <FontAwesome
-                    name="picture-o"
-                    size={18}
-                    color="purple"
-                    style={styles.buttonIcon}
-                />
+                    <FontAwesome
+                        name="picture-o"
+                        size={18}
+                        color="#25292e"
+                        style={styles.buttonIcon}
+                    />
 
-                <Text style={styles.buttonLabel}>{label}</Text>
-            </Pressable>
-        </View>
-    );
+                    <Text style={[styles.buttonLabel, {color: "#25292e"}]}>{label}</Text>
+                </Pressable>
+            </View>
+        );
 }
 
 const styles = StyleSheet.create({
@@ -38,6 +40,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         padding: 3,
     },
+
     button: {
         borderRadius: 10,
         width: "100%",
@@ -50,7 +53,7 @@ const styles = StyleSheet.create({
         paddingRight: 8,
     },
     buttonLabel: {
-        color: "#fff",
+        color: "black",
         fontSize: 16,
     },
 });
